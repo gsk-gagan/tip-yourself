@@ -9,14 +9,14 @@ var debug = require('debug')('airapp:server');
 var http = require('http');
 var db = require('../db.js');
 
-var scheduler = require('../commons/schedulers');
+
 var constants = require('../commons/constants');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort('1337');
 app.set('port', port);
 
 /**
@@ -95,6 +95,5 @@ function onListening() {
     debug('Listening on ' + bind);
     console.log('Server started on port : ' + addr.port);
 
-    //Calling the scheduler
-    scheduler.startScheduler(constants.SCHEDULER.INTERVAL);
+    //Add custom setup things here
 }
