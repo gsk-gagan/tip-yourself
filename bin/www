@@ -10,8 +10,6 @@ var http = require('http');
 var db = require('../db.js');
 
 
-var constants = require('../commons/constants');
-
 /**
  * Get port from environment and store in Express.
  */
