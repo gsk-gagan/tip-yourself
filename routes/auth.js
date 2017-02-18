@@ -3,12 +3,7 @@ var router = express.Router();
 var _ = require('underscore');
 var db = require('../db');
 
-
-/* GET home page. */
-router.get('/sing_in', function (req, res, next) {
-    res.json({"INFO": "Login GET page"});
-});
-
+/*Sing In Post Request*/
 router.post('/sing_in', function(req, res, next) {
     var userName = req.body.user;
     var password = req.body.password;
@@ -23,6 +18,7 @@ router.post('/sing_in', function(req, res, next) {
     res.end("Username: " + userName + " Password: " + password);
 });
 
+/*Sign Up Post Request*/
 router.post('/sign_up', function (req, res, next) {
     var body = _.pick(req.body, 'firstname', 'lastname', 'email', 'homeaddress', 'officeaddress',
             'avgmnthspending', 'mintip', 'maxtip', 'password');

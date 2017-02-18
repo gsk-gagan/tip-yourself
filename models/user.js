@@ -47,6 +47,14 @@ module.exports = function(sequelize, DataTypes) {
         tokenvalidtill: {
             type: DataTypes.DATE
         }
+    }, {
+        hooks: {
+            beforeValidate: function(user, options) {
+                if (typeof user.email == 'string') {
+                    user.email = user.email.toLowerCase();
+                }
+            }
+        }
     });
 };
 
