@@ -10,18 +10,14 @@ if(env == 'production') {
 } else {
     sequelize = new Sequelize(undefined, undefined, undefined, {
         'dialect' : 'sqlite',
-        'storage' : path.join(__dirname, 'data', 'air-app-database.sqlite')
+        'storage' : path.join(__dirname, 'data', 'tip-yourself.sqlite')
     });
 }
 
 var db = {};
 
 //Table Definitions
-db.indiaSpendCrawler = sequelize.import(path.join(__dirname, 'models', 'indiaSpendCrawler.js'));
-db.waqiCrawler = sequelize.import(path.join(__dirname, 'models', 'waqiCrawler.js'));
-db.source = sequelize.import(path.join(__dirname, 'models', 'source.js'));
-db.aqiAll = sequelize.import(path.join(__dirname, 'models', 'aqiAll.js'));
-db.aqiLatest = sequelize.import(path.join(__dirname, 'models', 'aqiLatest.js'));
+db.user = sequelize.import(path.join(__dirname, 'models', 'user.js'));
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

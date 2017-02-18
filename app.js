@@ -6,9 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var manual = require('./routes/manual');
-var crawler = require('./routes/crawler');
-var aqi = require('./routes/aqi');
+var auth = require('./routes/auth');
 
 var app = express();
 
@@ -22,9 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //The path here is relative
 app.use('/', index);
-app.use('/api/manual', manual);
-app.use('/api/aqi', aqi);
-app.use('/api/crawler', crawler);
+app.use('/api/auth', auth);
 
 
 
