@@ -43,9 +43,6 @@ module.exports = function(sequelize, DataTypes) {
         },
         authtoken: {
             type: DataTypes.STRING
-        },
-        tokenvalidtill: {
-            type: DataTypes.DATE
         }
     }, {
         hooks: {
