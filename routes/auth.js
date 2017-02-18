@@ -3,19 +3,34 @@ var router = express.Router();
 var _ = require('underscore');
 var db = require('../db');
 
-/*Sing In Post Request*/
-router.post('/sing_in', function(req, res, next) {
-    var userName = req.body.user;
+/*login Post Request*/
+router.post('/login', function(req, res, next) {
+    var userName = req.body.email;
     var password = req.body.password;
 
-    //console.log("Username: " + userName + " Password: " + password);
-
-    res.status(200);
-    res.json({
-        "status" : "Success",
-        "token" : "This is the randomly generated token"
+    db.user.findOne({
+        where: {
+            email: userName,
+            password: password
+        }
+    }).then(function(user) {
+        if(!user) {
+            res.status(401).json({
+                "status": "Error",
+                "message": "Username or Password Mismatch"
+            })
+        } else {
+            res.status(200).json({
+                "status": "Success",
+                "message" :user
+            });
+        }
+    }).catch(function(err) {
+        res.status(401).json({
+            "status" : "Error",
+            "message": err
+        });
     });
-    res.end("Username: " + userName + " Password: " + password);
 });
 
 /*Sign Up Post Request*/
