@@ -1,0 +1,9 @@
+node_modules/
+.idea
+npm-debug.log
+*.sqlite
+.DS_Store
+.node-persist/storage/*
+nohup.out
+
+!.keep
