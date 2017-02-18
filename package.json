@@ -1,6 +1,6 @@
 {
-  "name": "airapp",
-  "version": "0.0.0",
+  "name": "tip-yourself",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
