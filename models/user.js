@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
     return sequelize.define('user', {
         userid: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            autoincrement: true,
             primaryKey: true
         },
         firstname: {
@@ -42,8 +42,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         authtoken: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
         tokenvalidtill: {
             type: DataTypes.DATE
