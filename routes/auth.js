@@ -34,7 +34,10 @@ router.post('/sign_up', function (req, res, next) {
             "message" : "Created new user " + user.firstname + " with email: " + user.email
         });
     }).catch(function(err) {
-        res.status(400).json(err);
+        res.status(400).json({
+            "status" : "Error",
+            "message": err.errors
+        });
     });
 
 });
